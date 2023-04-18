@@ -68,7 +68,7 @@ app.get("/:contractTxId/:articleId", async (req, res, next) => {
     );
     const text = await response.text();
 
-    const index = text.lastIndexOf("---") + 4;
+    const index = text.split("---", 2).join("---").length + 4;
     const content = text.substring(index);
 
     res.send({
